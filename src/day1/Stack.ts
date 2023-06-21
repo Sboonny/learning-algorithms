@@ -29,9 +29,9 @@ export default class Stack<T> {
             return head?.value;
         }
 
-        const head = this.head
-        this.head = head?.prev
-        return head?.value
+        const head = this.head;
+        this.head = head?.prev;
+        return head?.value;
     }
     peek(): T | undefined {
         return this.head?.value;
