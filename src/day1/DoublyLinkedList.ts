@@ -24,7 +24,33 @@ export default class DoublyLinkedList<T> {
         this.head.prev = node;
         this.head = node;
     }
-    insertAt(item: T, idx: number): void {}
+    insertAt(item: T, idx: number): void {
+        if (idx > this.length) {
+            throw new Error("index is bigger than array length");
+        }
+        this.length++;
+        if (idx === this.length) {
+            this.append(item);
+        } else if (idx === 0) {
+            this.prepend(item);
+        }
+
+        let curr = this.head;
+        for (let i = 0; curr && i < this.length; ++i) {
+            curr = curr.next;
+        }
+        curr = curr as Node<T>;
+
+        const node = { value: item } as Node<T>;
+
+        node.next = curr;
+        node.prev = curr.prev;
+        curr.prev = node;
+
+        if (curr.prev) {
+            curr.prev.next = curr;
+        }
+    }
     append(item: T): void {}
     remove(item: T): T | undefined {}
     get(idx: number): T | undefined {}
