@@ -16,6 +16,28 @@ export default class MinHeap {
 
     }
 
+    private heapifyDown(idx: number) {
+        const leftIndex = this.leftChild(idx);
+        const rightIndex = this.rightChild(idx);
+        if(idx >= this.length || leftIndex >= this.length) {
+            return;
+        }
+
+        const leftValue = this.data[leftIndex];
+        const rightValue = this.data[rightIndex];
+        const value = this.data[idx];
+
+        if(leftValue > rightValue && value > rightValue) {
+            this.data[idx] = rightValue;
+            this.data[rightIndex] = value;
+            this.heapifyDown(rightIndex)
+        } else if(rightValue > leftValue && value > leftValue) {
+            this.data[idx] = leftValue;
+            this.data[leftIndex] = value;
+            this.heapifyDown(leftIndex)
+        }
+    }
+
     private heapifyUp(idx: number) {
         if(idx === 0) return;
 
