@@ -10,10 +10,25 @@ export default class MinHeap {
     }
 
     insert(value: number): void {
-
+      this.data[this.length] = value;
+      this.heapifyUp(this.length);
+      this.length++;
     }
-    delete(): number {
+    delete(): number | undefined {
+      if(this.length === 0) {
+        return undefined;
+      }
+      const out = this.data[0];
+      this.length--;
+      
+      if(this.length === 0) {
+        this.data = [];
+        return out;
+      }
 
+      this.data[0] = this.data[this.length];
+      this.heapifyDown(0);
+      return out;
     }
 
     private heapifyDown(idx: number) {
