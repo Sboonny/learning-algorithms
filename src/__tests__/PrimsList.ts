@@ -1,5 +1,7 @@
-import prims from "@code/PrimsAlgorithm";
+import prims from "@code/PrimsList";
 import { list1 } from "./graph";
+
+// ToDo: figure out a way to test the graph similar to his graph here https://www.youtube.com/watch?v=om4nY7nQyBQ&t=2228s
 
 test("PrimsAlgorithm", function () {
     // there is only one right answer for this graph
