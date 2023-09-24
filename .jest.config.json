@@ -1,9 +1,8 @@
 {
     "clearMocks": true,
     "moduleNameMapper": {
-        "@code/(.*)": [
-            "<rootDir>/src/day1/$1"
-        ]
+        "@code/(.*)": ["<rootDir>/src/day1/$1"]
     },
+    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
     "preset": "ts-jest"
 }

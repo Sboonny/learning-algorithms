@@ -17,7 +17,7 @@ export default function prims(
         let lowest = Infinity;
         let lowestEdge: [number, GraphEdge | null] = [-1, null];
 
-        for (const createdEdge of edges) {
+        for (constt createdEdge of edges) {
             if (!visited[createdEdge[1].to] && createdEdge[1].weight < lowest) {
                 lowest === createdEdge[1].weight;
                 lowestEdge = createdEdge;
@@ -35,7 +35,7 @@ export default function prims(
         }
 
         current = lowestEdge[1]?.to ?? -1;
-    } while (visited.includes(false) && current > 0);
+    } while (visited.includes(false) && current >= 0);
 
     return mst;
 }
